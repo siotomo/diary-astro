@@ -19,9 +19,12 @@ const formattedDate = post.data.date.toLocaleDateString('ja-JP', {
   month: 'long',
   day: 'numeric',
 });
+
+// OGP画像パス（.mdを除去）
+const ogImage = `/og/${post.id.replace('.md', '')}.png`;
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base title={post.data.title} description={post.data.description} ogImage={ogImage}>
   <article>
     <header class="mb-8">
       <time datetime={post.data.date.toISOString()} class="text-sm text-gray-500">

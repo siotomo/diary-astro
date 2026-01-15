@@ -4,10 +4,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'シンプルな個人日記ブログ' } = Astro.props;
+const { title, description = 'シンプルな個人日記ブログ', ogImage } = Astro.props;
 const siteTitle = 'diary-astro';
+const siteUrl = import.meta.env.SITE || 'https://siotomo.github.io';
+const baseUrl = import.meta.env.BASE_URL || '/diary-astro';
+const fullUrl = `${siteUrl}${baseUrl}`;
+const ogImageUrl = ogImage ? `${fullUrl}${ogImage}` : `${fullUrl}/og/default.png`;
 ---
 
 <!DOCTYPE html>
@@ -18,11 +23,23 @@ const siteTitle = 'diary-astro';
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | {siteTitle}</title>
+
+    <!-- OGP -->
+    <meta property="og:title" content={`${title} | ${siteTitle}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content="article" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | ${siteTitle}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900">
     <header class="border-b border-gray-200 bg-white">
       <div class="mx-auto max-w-3xl px-4 py-6">
-        <a href="/" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+        <a href={baseUrl} class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
           {siteTitle}
         </a>
       </div>

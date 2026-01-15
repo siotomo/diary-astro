@@ -13,6 +13,8 @@
     "astro": "^5.16.9",
     "playwright": "^1.57.0",
     "rehype-mermaid": "^3.0.0",
+    "satori": "^0.18.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18"
   }
 }
