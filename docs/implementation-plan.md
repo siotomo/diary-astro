@@ -49,23 +49,12 @@ Mermaid対応とOGP画像生成を追加する。
 
 GitHub Pages で公開する準備をする。
 
-- [ ] **4.1** GitHub Actions ワークフロー作成（`.github/workflows/deploy.yml`）
-- [ ] **4.2** `astro.config.mjs` に `site` と `base` を設定
-
-### ⚠️ ユーザー操作が必要
-
-| 手順 | 操作内容 | 場所 |
-|------|----------|------|
-| **4.3** | GitHubで新規リポジトリ `diary-astro` を作成 | github.com |
-| **4.4** | リポジトリをPublicに設定（GitHub Pages無料利用のため） | github.com |
-
-- [ ] **4.5** リモートリポジトリ接続 & プッシュ
-
-### ⚠️ ユーザー操作が必要
-
-| 手順 | 操作内容 | 場所 |
-|------|----------|------|
-| **4.6** | GitHub Pages を有効化 | Settings > Pages > Source: GitHub Actions |
+- [x] **4.1** GitHub Actions ワークフロー作成（`.github/workflows/deploy.yml`）
+- [x] **4.2** `astro.config.mjs` に `site` と `base` を設定
+- [x] **4.3** GitHubで新規リポジトリ `diary-astro` を作成（GitHub API経由で実行）
+- [x] **4.4** リポジトリをPublicに設定（作成時にPublicで作成）
+- [x] **4.5** リモートリポジトリ接続 & プッシュ
+- [x] **4.6** GitHub Pages を有効化（GitHub API経由で `build_type: workflow` に設定）
 
 ---
 
@@ -82,10 +71,4 @@ GitHub Pages で公開する準備をする。
 
 ## ユーザー操作まとめ
 
-| フェーズ | 手順 | 操作内容 |
-|----------|------|----------|
-| Phase 4 | 4.3 | GitHubでリポジトリ作成 |
-| Phase 4 | 4.4 | リポジトリをPublicに設定 |
-| Phase 4 | 4.6 | GitHub Pages有効化（Settings > Pages） |
-
-それ以外はすべてClaudeが実行可能。
+すべての操作をGitHub API経由でClaudeが実行可能。ユーザー操作は不要。
