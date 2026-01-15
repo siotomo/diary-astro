@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright for Mermaid
+        run: npx playwright install chromium
+
       - name: Build with Astro
         uses: withastro/action@v3
 
