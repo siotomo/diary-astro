@@ -1,0 +1,42 @@
+---
+import Tag from './Tag.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  tags: string[];
+  description?: string;
+  href: string;
+}
+
+const { title, date, tags, description, href } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-200 transition-all">
+  <a href={href} class="block">
+    <time datetime={date.toISOString()} class="text-sm text-gray-500">
+      {formattedDate}
+    </time>
+    <h2 class="mt-2 text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+      {title}
+    </h2>
+    {description && (
+      <p class="mt-2 text-gray-600 line-clamp-2">
+        {description}
+      </p>
+    )}
+  </a>
+  {tags.length > 0 && (
+    <div class="mt-4 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <Tag tag={tag} href={`/tags/${tag}`} />
+      ))}
+    </div>
+  )}
+</article>
