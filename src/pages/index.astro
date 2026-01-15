@@ -20,7 +20,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
           date={post.data.date}
           tags={post.data.tags}
           description={post.data.description}
-          href={`/posts/${post.id}`}
+          href={`${import.meta.env.BASE_URL}posts/${post.id}`}
         />
       ))}
     </div>

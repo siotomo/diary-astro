@@ -6,7 +6,8 @@ import rehypeMermaid from 'rehype-mermaid';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://siotomo.github.io',
-  base: '/diary-astro',
+  base: '/diary-astro/',
+  trailingSlash: 'ignore',
   markdown: {
     syntaxHighlight: {
       type: 'shiki',
